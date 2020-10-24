@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <title>Bengaluru house price prediction</title>
+
+</head>
+<body style="background-color: rgb(45, 14, 85);">
+
+    <br/><br/>
+
+    <div class="container">
+
+        <form action="/predict_price" method="POST">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card bg-transparent">
+                        <h2 class="text-white">Location of House</h2>
+                        <select name="location">
+                            {% for col in columns %}
+                            <option value="{{ col }}">{{ col }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/>
+                <div class="col-md-6">
+                    <div class="card bg-transparent">
+                        <h2 class="text-white">Area of House in Square Feet</h2>
+                        <input type="text" placeholder="Area in Square Feet" name="sqft" required>
+                    </div>
+                </div>
+            </div>
+
+            <br/><br/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card bg-transparent">
+                        <h2 class="text-white">No. of Bathroom in House</h2>
+                        <input type="text" placeholder="No. of Bathroom" name="bath" required>
+                    </div>
+                </div>
+                <br/><br/><br/><br/><br/><br/>
+                <div class="col-md-6">
+                    <div class="card bg-transparent">
+                        <h2 class="text-white">No. of Badroom in House</h2>
+                        <input type="text" placeholder="No. of BHK" name="bhk" required>
+                    </div>
+                </div>
+            </div>
+
+            <br/><br/>
+
+            <div class="row justify-content-center">
+                <div class="col-md-4 justify-content-center">
+                    <div class="card bg-transparent">
+                        <input class="bg-success" type="submit"">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <br/><br/>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4 justify-content-center">
+                <div class="card bg-transparent">
+                    <h3 class="text-white">{{result}}</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
